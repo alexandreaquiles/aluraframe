@@ -6,13 +6,17 @@ class NegociacaoController {
     this._campoValor = $('#valor');
 
     this._listaNegociacoes = new ListaNegociacoes();
+    this._mensagem = new Mensagem();
 
     this._listaNegociacoesView = new ListaNegociacoesView($('#negociacoes'));
+    this._mensagemView = new MensagemView($('#mensagem'));
   }
 
   adiciona () {
     this._listaNegociacoes.adiciona(this._criaNegociacao());
+    this._mensagem.texto = 'Negociação adicionada com sucesso.';
     this._listaNegociacoesView.update(this._listaNegociacoes);
+    this._mensagemView.update(this._mensagem);
     this._limpaFormulario();
   }
 
