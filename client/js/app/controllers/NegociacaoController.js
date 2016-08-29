@@ -7,10 +7,8 @@ class NegociacaoController {
   }
 
   adiciona () {
-    let data = new Date(this._campoData.value.replace(/-/g, ','));
-
     let negociacao = new Negociacao(
-      data,
+      DateHelper.textoParaData(this._campoData.value),
       this._campoQuantidade.value,
       this._campoValor.value
     );
